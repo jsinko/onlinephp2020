@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/btest', function () {
     //return view('testbootstrap'); //Vraćeno pomoću helpera
     return View::make('testbootstrap', ['name' => 'Taylor']); //radi sa Fascade statickim pristupom
-});
+})-> name('home');
 
 Route::get('foo', function () {
    // echo "Hello world"; // Može i ovako
@@ -56,3 +56,7 @@ Route::get('users/{name}', function ($name) {
 Route::get('users/{id}', function ($id) {
      echo "pozdrav nepoznati tvoj id je".$id;
 })->where('id', '[0-9]+')-> name('whatsmyid');
+
+Route::middleware('over18')->get('over18/{age}', function ($age) {
+    return "Dobrodošli, vi ste stariji od 18, imate".$age;
+})-> name('over18');
