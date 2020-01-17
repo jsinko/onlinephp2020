@@ -37,9 +37,8 @@ Route::redirect('/here', '/there', 500);
 
 //Rute s parametrima
 
-Route::get('user/{id}', function ($id) {
-    return 'User '.$id;
-});
+Route::get('user/{id}', 'Usercontroller@show');
+
 
 Route::get('kvadriraj/{broj}', function ($broj) {
     return 'Kvadrat od '.$broj." je ".($broj*$broj);
