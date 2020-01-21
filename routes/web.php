@@ -69,7 +69,7 @@ Route::resource('photos', 'PhotoController');
 Route::get('/basicauth', ['middleware' => 'shield'], function () {
     // Your protected page.
     // $ php -r "echo password_hash('vinkla', PASSWORD_DEFAULT);"
-    // $2y$10$TPls.F4rHMWV53EYOT0DEuHwL6OYf5R/2u.MjMopmGcHJR7Hrr9JG
+    // $2y$10$Hg4A6sK0cW0O2llF8P8DH.xdW8aJFr9t7cuBey7.N9KpqBqrpwLDS
     // upisi username i hashirani pass
     return "logirani ste";
 });
