@@ -1,5 +1,5 @@
 <?php
-
+//  php artisan make:middleware CheckAge
 namespace App\Http\Middleware;
 
 use Closure;
@@ -15,6 +15,10 @@ class CheckAge
      */
     public function handle($request, Closure $next)
     {
+        //TODO
+        //http://localhost:8000/over18/22  --> treba dozvoliti
+        // http://localhost:8000/over18/13 --> treba redirectati na home
+
         if ($request->age <= 17) {
             return redirect()->route('home');
         }

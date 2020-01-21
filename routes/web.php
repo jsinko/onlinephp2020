@@ -56,8 +56,20 @@ Route::get('users/{id}', function ($id) {
      echo "pozdrav nepoznati tvoj id je".$id;
 })->where('id', '[0-9]+')-> name('whatsmyid');
 
+//php artisan make:middleware CheckAge
 Route::middleware('over18')->get('over18/{age}', function ($age) {
     return "Dobrodošli, vi ste stariji od 18, imate".$age;
 })-> name('over18');
 
 Route::resource('photos', 'PhotoController');
+
+// basic auth primjer
+// https://github.com/vinkla/laravel-shield
+// Use on your routes.
+Route::get('/basicauth', ['middleware' => 'shield'], function () {
+    // Your protected page.
+    // $ php -r "echo password_hash('vinkla', PASSWORD_DEFAULT);"
+    // $2y$10$TPls.F4rHMWV53EYOT0DEuHwL6OYf5R/2u.MjMopmGcHJR7Hrr9JG
+    // upisi username i hashirani pass
+    return "logirani ste";
+});
